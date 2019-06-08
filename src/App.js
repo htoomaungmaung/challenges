@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-import Donation from './containers/donation';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Donation from './containers/donation';
 
 class App extends Component {
-  componentDidMount () {
-    console.log('app did mount');
-  }
 
   render () {
     return (

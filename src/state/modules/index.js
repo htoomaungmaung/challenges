@@ -1,0 +1,1 @@
+export { default as donation } from './donation/donationIndex';

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import {actionCreators as donationActionCreators} from '../redux/modules/donation';
+import {donationOperations} from '../state/modules/donation/donationIndex';
 import styled from 'styled-components';
 
 const Card = styled.div`
@@ -12,7 +12,7 @@ const Card = styled.div`
 class Donation extends Component {
   state = {
     selectedAmount: 10,
-    currency: 'THB'
+    currency: 'THB',
   }
 
 
@@ -41,7 +41,7 @@ class Donation extends Component {
             value={amount}
             onChange={amountChangeHandler}
           />
-            {amount}
+          {amount}
         </label>
 
       ));
@@ -76,16 +76,15 @@ class Donation extends Component {
 function mapStateToProps(state) {
   const { totalAmount, message, charities } = state.donation;
   return {
-    totalAmount, message, charities
+    totalAmount, message, charities,
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    handlePay: ( id, amount, currency ) => dispatch( donationActionCreators.handlePay( id, amount, currency)),
-    fetchCharities: () => dispatch(donationActionCreators.fetchCharities()),
-    fetchOverall: () => dispatch(donationActionCreators.fetchOverall()),
-    updateTotalDonate: (totalDonate) => dispatch(donationActionCreators.updateTotalDonate(totalDonate)),
+    handlePay: ( id, amount, currency ) => dispatch( donationOperations.handlePay( id, amount, currency)),
+    fetchCharities: () => dispatch(donationOperations.fetchCharities()),
+    fetchOverall: () => dispatch(donationOperations.fetchOverall()),
   };
 }
 

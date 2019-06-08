@@ -101,3 +101,8 @@ When the number of transactions grow, it is not ideal to calculate the total amo
   },
 ```
 Since the json-server is not capable of processing the data, the calculation will still be done at the frontend. However, it is easier to migrate to more powerful backend server. 
+
+# Reduck
+Restructure the redux with reduck style to be extensible
+Another advantage of redux strucuture is that all the tests and logic implementation are located in the same folder. Easier for developer to visualize the folder structure. 
+> The main inspiration comes from https://github.com/erikras/ducks-modular-redux
