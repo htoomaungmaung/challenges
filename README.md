@@ -89,3 +89,15 @@ npx babel-upgrade --write
 add webpack-cli package
 ```
 yarn add --dev webpack-cli
+
+# Optimize logic
+When the number of transactions grow, it is not ideal to calculate the total amount from the array of transactions. Should usee the total amount replied from backend API. 
+
+> Additional property to keep track of the total donation. 
+```
+  "overall": {
+    "totalDonation": 0,
+    "currency": "THB"
+  },
+```
+Since the json-server is not capable of processing the data, the calculation will still be done at the frontend. However, it is easier to migrate to more powerful backend server. 

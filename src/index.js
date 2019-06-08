@@ -8,18 +8,36 @@ const store = createStore(function(state, action) {
   const _state = state == null ? {
     donate: 0,
     message: '',
+    currency: '',
+    charities: []
   } : state;
+
+  const updateCharity = () => {
+
+    const updatedState = state.charities.map( charity => {
+      if(charity.id == action.charity.id){
+        charity.totalDonation = action.charity.totalDonation
+      }
+      return charity
+    })
+    return {...state, ...{charities: updatedState} }
+  }
 
   switch (action.type) {
     case 'UPDATE_TOTAL_DONATE':
-      return Object.assign({}, _state, {
-        donate: _state.donate + action.amount,
-      });
+      return { ..._state, ...{
+        donate: action.amount,
+      }};
     case 'UPDATE_MESSAGE':
-      return Object.assign({}, _state, {
+      return {..._state, ...{
         message: action.message,
-      });
-
+      }};
+    case 'UPDATE_CHARITIES':
+      return { ..._state, ...{charities: action.charities}};  
+    case 'UPDATE_CHARITY':
+      return updateCharity(_state, action);
+    case 'UPDATE_CURRENCY':
+      return {..._state, ...{currency: action.currency}};
     default: return _state;
   }
 });
