@@ -67,3 +67,25 @@ Please remember that your patch must consist of multiple separate commits. Your 
 If you notice more bugs in the original implementation you can add fixes for those as well. You won't be penalized if you don't. However we ask you not to add more features than the one given in the mission list.
 
 Let's rock! :metal:
+
+# Documentation intro
+Written documentation along with the code are useful for software projects to run smoother and easier future enhancements. The purpose of this documention is to describe how the implementation has been done and comprehensive explanation to the steps. The main objective is to follow the rules mentioned above and fufill the mission within reaseonable timeframe. 
+
+# Update packages
+Firstly install the packages with yarn
+```
+yarn install
+```
+Upgrade the packages to latest using yarn
+```
+yarn upgrade --latest
+```
+> The most important upgrade here is react. Start from react 16.8 onwards, we can use the latest features from react such as useState, useEffect, etc.
+
+upgrade to babel 7
+```
+npx babel-upgrade --write
+```
+add webpack-cli package
+```
+yarn add --dev webpack-cli
