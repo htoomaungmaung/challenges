@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Charity from './charity/Charity';
 
+import {ComponentErrorBoundary as ErrorBoundary} from '../../../utils/errorBoundary';
+
 // aspect ratio 16:9 + extra 20% for displaying info
 const maxWidth = 800;
 const minHeight = 540;
@@ -57,15 +59,17 @@ const DonationList = (props: Props) => {
   let donationList; 
     if(props.charities){
       donationList = props.charities.map((item, i) => (
-        <Card key={i}>   
-          <Charity 
-          charityId = {item.id}
-          name={item.name} 
-          totalDonation={item.totalDonation} 
-          currency={item.currency}
-          image={item.image}
-          paymentHandler={props.paymentHandler} />         
-        </Card>
+        <Card key={i}>        
+              <ErrorBoundary>
+                    <Charity 
+                    charityId = {item.id}
+                    name={item.name} 
+                    totalDonation={item.totalDonation} 
+                    currency={item.currency}
+                    image={item.image}
+                    paymentHandler={props.paymentHandler} />         
+              </ErrorBoundary>
+          </Card>
       ));
     }
     return (

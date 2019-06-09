@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import type, { Dispatch } from 'redux';
 import {donationOperations} from '../../../state/modules/donation/donationIndex';
 import DonationList from '../../components/features/donation/DonationList';
+import {PageErrorBoundary as ErrorBoundary} from '../../utils/errorBoundary';
 import styled from 'styled-components';
 
 const maxWidth = 800;
@@ -43,7 +44,7 @@ export const DonationPage = (props: Props) => {
   },[]);
 
   return (
-    <div>
+    <ErrorBoundary>
       <Header>          
         <p>Total amount raised: {props.totalAmount} {props.currency}</p>
       </Header>
@@ -51,7 +52,7 @@ export const DonationPage = (props: Props) => {
         charities={props.charities}
         paymentHandler={props.handlePay}
       />
-    </div>
+    </ErrorBoundary>
   )
 
 }

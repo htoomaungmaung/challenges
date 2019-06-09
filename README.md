@@ -121,3 +121,8 @@ views
 └── pages
     └── Page1
 ```  
+
+# code splitting and optimization
+
+Lazy loading is used here code splitting and performance optimization. 
+Added higher order component (errorBoundary) to prevent the application from crush by handling error at the individual component level. Error boundaries catch errors during rendering, in lifecycle methods, and in constructors of the whole tree below them.
