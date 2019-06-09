@@ -1,3 +1,7 @@
+/**
+ * The purpose of this file is to decouple the API call and handle the error here. 
+ * From the logic operations, just need to import this file and call the API with required parameters. 
+ */
 // @flow
 import 'isomorphic-fetch';
 

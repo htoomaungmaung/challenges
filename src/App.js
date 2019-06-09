@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Donation from './containers/donation';
+import Donation from './views/pages/DonationPage/DonationPage';
 
 class App extends Component {
 

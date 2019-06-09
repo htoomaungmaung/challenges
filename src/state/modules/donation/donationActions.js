@@ -24,13 +24,19 @@ export const updateCharity = (charity: charity ) => ({
   charity,
 });
 
-export const updateTotalDonate = (total: number ) => ({
+export const updateTotalDonate = (totalAmount: number ) => ({
   type: types.UPDATE_TOTAL_DONATE,
-  totalAmount: total,
+  totalAmount: totalAmount,
 });
 
 export const updateCurrency = (currency: string) => ({
   type: types.UPDATE_CURRENCY,
   currency,
+})
+
+export const updateOverall = (totalAmount: Number, currency: string) => ({
+  type: types.UPDATE_OVERALL,
+  totalAmount: totalAmount,
+  currency: currency
 })
 

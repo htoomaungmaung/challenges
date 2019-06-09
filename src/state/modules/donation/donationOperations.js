@@ -16,29 +16,35 @@ const server = window.location.protocol + '//' +window.location.hostname;
 const charityURL = `${server}:${port}/charities`;
 const overallURL = `${server}:${port}/overall`;
 const paymentURL = `${server}:${port}/payments`;
-console.log(charityURL);
+
 export const fetchCharities = () => (dispatch: Dispatch<any>) => {
   return fetchUtil( charityURL, 'GET', null ).then(
     res => {
       dispatch(actions.updateCharities(res)) 
     }    
   ).catch(
-    err => { console.log(err) }
+    err => { toast.error(err)  }
   )
 }
 
 export const fetchOverall = () => (dispatch: Dispatch<any>) => {
   return fetchUtil( overallURL, 'GET', null ).then(
     res => {
-      dispatch(actions.updateTotalDonate(res.totalDonation))
-      dispatch(actions.updateCurrency(res.currency))
+      dispatch(actions.updateOverall(res.totalDonation, res.currency));
     }
   ).catch(
-    err => { console.log(err) }
+    err => { toast.error(err)  }
   )
   
 }
 
+
+/*
+The current backend is not handling the calculating total amount.
+Therefore, we need to do extra work here to keep the data integrity by dispatching 2 more methods "increaseAndSyncOverallTotal" and "increaseAndSyncCharity".
+These 2 methods can be ignored if the backend API is capable of doing the data integrity process.
+However, for demo purpose, we will keep it here. 
+*/
 export const handlePay = (id: any, amount: number, currency: string) => (dispatch: Dispatch<any>) => {
   console.log('handle pay:'+id+','+amount+','+currency);
   const body = { charitiesId: id, amount, currency };
@@ -49,7 +55,7 @@ export const handlePay = (id: any, amount: number, currency: string) => (dispatc
   ).then(
     () => dispatch(increaseAndSyncCharity(amount,id)) 
   ).catch(
-    err => { console.log(err) }
+    err => { toast.error(err) }
   )
   
 }
@@ -66,11 +72,11 @@ const increaseAndSyncOverallTotal = (amount:number) => (dispatch: Dispatch<any>)
           dispatch(actions.updateTotalDonate(updatedAmount)) 
         }        
       ).catch(
-        err => { console.log(err) }
+        err => { toast.error(err)  }
       )
     }
   ).catch(
-    err => { console.log(err) }
+    err => { toast.error(err)  }
   )
 }
 
@@ -87,10 +93,10 @@ const increaseAndSyncCharity = (amount: number, charityId:any) => (dispatch: Dis
           dispatch(actions.updateCharity(updatedBody))
         }
       ).catch(
-        err => { console.log(err) }
+        err => { toast.error(err)  }
       )
     }
   ).catch(
-    err => { console.log(err) }
+    err => { toast.error(err)  }
   )
 }

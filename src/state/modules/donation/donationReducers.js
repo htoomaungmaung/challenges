@@ -10,7 +10,6 @@ import type { State } from './donationModel';
 import { initialState } from './donationModel';
 
 const updateCharity = (state: any, action: any) => {
-
   const updatedState = state.charities.map( charity => {
     if (charity.id == action.charity.id) {
       charity.totalDonation = action.charity.totalDonation
@@ -31,6 +30,8 @@ const reducer = (state: State = initialState, action: any) => {
       return updateCharity(state,action)
     case actionTypes.UPDATE_CURRENCY:
       return { ...state, ...{currency: action.currency}};
+    case actionTypes.UPDATE_OVERALL:
+      return { ...state, ...{currency: action.currency, totalAmount: action.totalAmount}}
     default:
       return state;
   }

@@ -106,3 +106,18 @@ Since the json-server is not capable of processing the data, the calculation wil
 Restructure the redux with reduck style to be extensible
 Another advantage of redux strucuture is that all the tests and logic implementation are located in the same folder. Easier for developer to visualize the folder structure. 
 > The main inspiration comes from https://github.com/erikras/ducks-modular-redux
+
+# View folder structure
+The folder is structured based on readability and reusability.
+Page consists of one or more feature components according to the project requirements. 
+The features components are developed in mind with reusability. 
+
+```
+views
+├── components
+│   └── features
+│       └── feature1
+|           └── components 
+└── pages
+    └── Page1
+```  

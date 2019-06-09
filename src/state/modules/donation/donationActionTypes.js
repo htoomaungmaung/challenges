@@ -9,3 +9,4 @@ export const UPDATE_TOTAL_DONATE = 'donation/UPDATE_TOTAL_DONATE';
 export const UPDATE_CHARITIES = 'donation/UPDATE_CHARITIES';
 export const UPDATE_CHARITY = 'donation/UPDATE_CHARITY';
 export const UPDATE_CURRENCY = 'donation/UPDATE_CURRENCY';
+export const UPDATE_OVERALL = 'donation/UPDATE_OVERALL';
