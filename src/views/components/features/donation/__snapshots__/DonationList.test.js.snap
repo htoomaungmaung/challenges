@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DonationList /> <DonationList /> snapshot test 1`] = `
+<div
+  className="sc-dnqmqq iTnEek"
+>
+  <div
+    className="sc-iwsKbI jcKscV"
+  >
+    <div>
+      <div
+        className="sc-ifAKCX cJLgyY"
+      >
+        <img
+          src="images/undefined"
+          style={
+            Object {
+              "zIndex": "2",
+            }
+          }
+        />
+        <div
+          className="sc-bdVaJa isMeQX"
+        >
+          <p>
+            Select the amount to donate 
+            
+             
+          </p>
+          <div
+            className="sc-bwzfXH cRuqQG"
+          >
+            <label>
+              <input
+                checked={true}
+                onChange={[Function]}
+                type="radio"
+                value={10}
+              />
+              10
+            </label>
+            <label>
+              <input
+                checked={false}
+                onChange={[Function]}
+                type="radio"
+                value={20}
+              />
+              20
+            </label>
+            <label>
+              <input
+                checked={false}
+                onChange={[Function]}
+                type="radio"
+                value={50}
+              />
+              50
+            </label>
+            <label>
+              <input
+                checked={false}
+                onChange={[Function]}
+                type="radio"
+                value={100}
+              />
+              100
+            </label>
+            <label>
+              <input
+                checked={false}
+                onChange={[Function]}
+                type="radio"
+                value={500}
+              />
+              500
+            </label>
+          </div>
+          <button
+            className="sc-htpNat XpVwB"
+            onClick={[Function]}
+          >
+            Pay
+          </button>
+        </div>
+      </div>
+      <div
+        className="sc-EHOje hoBdWw"
+      >
+        <div
+          className="sc-bZQynM dmujVc"
+        >
+          <p>
+            
+          </p>
+          
+        </div>
+        <div
+          className="sc-gzVnrw ihGDdT"
+        >
+          <button
+            className="sc-htoDjs iVuBhZ"
+            onClick={[Function]}
+          >
+            Donate
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<DonationList /> <DonationList /> snapshot test without props 1`] = `
+<div
+  className="sc-dnqmqq iTnEek"
+/>
+`;

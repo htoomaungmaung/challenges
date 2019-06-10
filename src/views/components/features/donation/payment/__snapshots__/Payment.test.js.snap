@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Payment /> <Payment /> snapshot test 1`] = `
+<div
+  className="sc-bdVaJa isMeQX"
+>
+  <button
+    className="sc-bxivhb fRVTyI"
+    onClick={[Function]}
+  >
+    x
+  </button>
+  <p>
+    Select the amount to donate 
+    
+     
+  </p>
+  <div
+    className="sc-bwzfXH cRuqQG"
+  >
+    <label>
+      <input
+        checked={true}
+        onChange={[Function]}
+        type="radio"
+        value={10}
+      />
+      10
+    </label>
+    <label>
+      <input
+        checked={false}
+        onChange={[Function]}
+        type="radio"
+        value={20}
+      />
+      20
+    </label>
+    <label>
+      <input
+        checked={false}
+        onChange={[Function]}
+        type="radio"
+        value={50}
+      />
+      50
+    </label>
+    <label>
+      <input
+        checked={false}
+        onChange={[Function]}
+        type="radio"
+        value={100}
+      />
+      100
+    </label>
+    <label>
+      <input
+        checked={false}
+        onChange={[Function]}
+        type="radio"
+        value={500}
+      />
+      500
+    </label>
+  </div>
+  <button
+    className="sc-htpNat XpVwB"
+    onClick={[Function]}
+  >
+    Pay
+  </button>
+</div>
+`;
+
+exports[`<Payment /> <Payment /> snapshot test without props 1`] = `
+<div
+  className="sc-bdVaJa isMeQX"
+>
+  <p>
+    Select the amount to donate 
+     
+  </p>
+  <div
+    className="sc-bwzfXH cRuqQG"
+  />
+  <button
+    className="sc-htpNat XpVwB"
+    onClick={[Function]}
+  >
+    Pay
+  </button>
+</div>
+`;

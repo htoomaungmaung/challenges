@@ -46,7 +46,8 @@ type charity = {
   name: string,
   totalDonation: number,
   currency: string,
-  id: any
+  id: any,
+  image: any
 }
 
 type Props = {

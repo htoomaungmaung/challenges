@@ -46,9 +46,8 @@ These 2 methods can be ignored if the backend API is capable of doing the data i
 However, for demo purpose, we will keep it here. 
 */
 export const handlePay = (id: any, amount: number, currency: string) => (dispatch: Dispatch<any>) => {
-  console.log('handle pay:'+id+','+amount+','+currency);
   const body = { charitiesId: id, amount, currency };
-  fetchUtil( paymentURL, 'POST', body ).then(
+  return fetchUtil( paymentURL, 'POST', body ).then(
     () => toast(`Thank you for donating ${amount} ${currency}`)
   ).then(
     () => dispatch(increaseAndSyncOverallTotal(amount))
@@ -61,14 +60,13 @@ export const handlePay = (id: any, amount: number, currency: string) => (dispatc
 }
 
 const increaseAndSyncOverallTotal = (amount:number) => (dispatch: Dispatch<any>) => {
-  fetchUtil( overallURL, 'GET', null ).then(
+  return fetchUtil( overallURL, 'GET', null ).then(
     overAllRes => {
       const updatedAmount = parseInt(overAllRes.totalDonation) + parseInt(amount);
       const updatedSt = { totalDonation: updatedAmount };
       const updatedBody = { ...overAllRes, ...updatedSt };
       fetchUtil( overallURL, 'PUT', updatedBody ).then(
         () => {
-          console.log('updating total:'+updatedAmount);
           dispatch(actions.updateTotalDonate(updatedAmount)) 
         }        
       ).catch(
@@ -81,7 +79,7 @@ const increaseAndSyncOverallTotal = (amount:number) => (dispatch: Dispatch<any>)
 }
 
 const increaseAndSyncCharity = (amount: number, charityId:any) => (dispatch: Dispatch<any>) => {
-  fetchUtil( `${charityURL}/${charityId}`, 'GET', null).then(
+  return fetchUtil( `${charityURL}/${charityId}`, 'GET', null).then(
     charityRes => {
       console.log('fetched charity:'+charityId);
       const updatedAmount = parseInt(charityRes.totalDonation) + parseInt(amount);
