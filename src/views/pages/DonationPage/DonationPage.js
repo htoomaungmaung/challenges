@@ -1,11 +1,10 @@
 // @flow
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import type, { Dispatch } from 'redux';
 import {donationOperations} from '../../../state/modules/donation/donationIndex';
 import DonationList from '../../components/features/donation/DonationList';
 import {PageErrorBoundary as ErrorBoundary} from '../../utils/errorBoundary';
 import styled from 'styled-components';
+import { useSelector, useDispatch } from "react-redux";
 
 const maxWidth = 800;
 const Header = styled.div`
@@ -20,55 +19,35 @@ const Header = styled.div`
   }
 `;
 
-type charity = {
-  name: string,
-  totalDonation: number,
-  currency: string,
-  id: any,
-  image: any
-}
+const DonationPage = () => {
 
-type Props={
-  fetchCharities: any,
-  fetchOverall: any,
-  handlePay: any,
-  totalAmount: number,
-  currency: string,
-  charities: Array<charity>
+  const totalAmount = useSelector(state =>  state.donation.totalAmount);
+  const currency = useSelector(state => state.donation.currency);
+  const charities = useSelector(state => state.donation.charities);
 
-}
+  const dispatch = useDispatch();
 
-export const DonationPage = (props: Props) => {
   useEffect(() => {
-    props.fetchCharities();
-    props.fetchOverall();
+    dispatch(donationOperations.fetchCharities());
+    dispatch(donationOperations.fetchOverall())
   },[]);
+
+  const handlePay = ( charityId: number, amount: number, currency: string ) => { 
+    dispatch( donationOperations.handlePay( charityId, amount, currency));
+  }
 
   return (
     <ErrorBoundary>
       <Header>          
-        <p>Total amount raised: {props.totalAmount} {props.currency}</p>
+        <p>Total amount raised: {totalAmount} {currency}</p>
       </Header>
       <DonationList
-        charities={props.charities}
-        paymentHandler={props.handlePay}
+        charities={charities}
+        paymentHandler={handlePay}
       />
     </ErrorBoundary>
   )
 
 }
 
-const mapStateToProps = (state: any) => ({
-  totalAmount : state.donation.totalAmount,
-  currency : state.donation.currency,
-  charities : state.donation.charities
-});
-
-const mapDispatchToProps = (dispatch: Dispatch<any>) => ({
-    handlePay: ( charityId: number, amount: number, currency: string ) => dispatch( donationOperations.handlePay( charityId, amount, currency)),
-    fetchCharities: () => dispatch(donationOperations.fetchCharities()),
-    fetchOverall: () => dispatch(donationOperations.fetchOverall()),
-
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(DonationPage);
+export default DonationPage;

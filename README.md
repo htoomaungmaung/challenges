@@ -122,7 +122,10 @@ views
     └── Page1
 ```  
 
-# code splitting and optimization
+# Code splitting and optimization
 
 Lazy loading is used here code splitting and performance optimization. 
 Added higher order component (errorBoundary) to prevent the application from crush by handling error at the individual component level. Error boundaries catch errors during rendering, in lifecycle methods, and in constructors of the whole tree below them.
+
+# Redux hook
+From react 16.8, react has introduced the react hook which is really neat trick to get rid of class components and all the stateless components to be accessible to lifecycle methods. To accomodate that, redux has been updated into similar hooks as well such as useSelector and useDispatch. In this update, the redux connect component has been updated with hook manner. 

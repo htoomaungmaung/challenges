@@ -20,12 +20,8 @@ const H1 = styled.div`
     font-size: 2rem;
   } 
 `;
-class App extends Component {
-  componentDidMount () {
-    console.log('app did mount');
-  }
 
-  render () {
+const App  = () => {
     return (
       <div>
         <H1>Omise Tamboon React</H1>
@@ -34,8 +30,7 @@ class App extends Component {
         </BrowserRouter>        
         <ToastContainer autoClose={5000} position={`top-center`} />
       </div>
-    );
-  }
+    );  
 }
 
 export default App;
