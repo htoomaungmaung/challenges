@@ -89,7 +89,7 @@ npx babel-upgrade --write
 add webpack-cli package
 ```
 yarn add --dev webpack-cli
-
+```
 # Optimize logic
 When the number of transactions grow, it is not ideal to calculate the total amount from the array of transactions. Should usee the total amount replied from backend API. 
 
@@ -121,7 +121,6 @@ views
 └── pages
     └── Page1
 ```  
-
 # Code splitting and optimization
 
 Lazy loading is used here code splitting and performance optimization. 
