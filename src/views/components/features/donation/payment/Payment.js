@@ -113,7 +113,6 @@ const Payment = (props: Props) => {
 
   const amountChangeHandler = (event: any) => {
     const amount = event.target.value;
-    console.log('changed amount:'+amount);
     setSelectedAmount(amount);
   }
 

@@ -81,13 +81,13 @@ const increaseAndSyncOverallTotal = (amount:number) => (dispatch: Dispatch<any>)
 const increaseAndSyncCharity = (amount: number, charityId:any) => (dispatch: Dispatch<any>) => {
   return fetchUtil( `${charityURL}/${charityId}`, 'GET', null).then(
     charityRes => {
-      console.log('fetched charity:'+charityId);
+
       const updatedAmount = parseInt(charityRes.totalDonation) + parseInt(amount);
       const updatedSt = { totalDonation: updatedAmount };
       const updatedBody = { ...charityRes, ...updatedSt };
       fetchUtil( `${charityURL}/${charityId}`, 'PUT', updatedBody ).then(
         () => {
-          console.log('Successfully updated charity:');
+
           dispatch(actions.updateCharity(updatedBody))
         }
       ).catch(

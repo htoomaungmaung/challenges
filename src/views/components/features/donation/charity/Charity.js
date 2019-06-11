@@ -111,7 +111,6 @@ type Props = {
 const Charity = (props: Props) => {
   const [donating, setDonating] = useState(false);
   const donateHandler = (event: any) => {
-    console.log("clicked donate. state is",donating);
     setDonating(!donating)
   }
   return (

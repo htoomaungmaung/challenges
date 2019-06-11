@@ -1,45 +1,19 @@
 {
-  "overall": {
-    "totalDonation": 0,
-    "currency": "THB"
-  },
-  "charities": [
+  "posts": [
     {
       "id": 1,
-      "name": "Baan Kru Noi",
-      "image": "baan-kru-noi.jpg",
-      "currency": "THB",
-      "totalDonation": 0
-    },
-    {
-      "id": 2,
-      "name": "Habitat for Humanity Thailand",
-      "image": "habitat-for-humanity-thailand.jpg",
-      "currency": "THB",
-      "totalDonation": 0
-    },
-    {
-      "id": 3,
-      "name": "Paper Ranger",
-      "image": "paper-ranger.jpg",
-      "currency": "THB",
-      "totalDonation": 0
-    },
-    {
-      "id": 4,
-      "name": "Makhampom Theater",
-      "image": "makhampom-theater.jpg",
-      "currency": "THB",
-      "totalDonation": 0
-    },
-    {
-      "id": 5,
-      "name": "Thailand Association of the Blind",
-      "image": "thailand-association-of-the-blind.jpg",
-      "currency": "THB",
-      "totalDonation": 0
+      "title": "json-server",
+      "author": "typicode"
     }
   ],
-  "payments": [
-  ]
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
 }

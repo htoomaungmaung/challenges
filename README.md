@@ -129,3 +129,26 @@ Added higher order component (errorBoundary) to prevent the application from cru
 
 # Redux hook
 From react 16.8, react has introduced the react hook which is really neat trick to get rid of class components and all the stateless components to be accessible to lifecycle methods. To accomodate that, redux has been updated into similar hooks as well such as useSelector and useDispatch. In this update, the redux connect component has been updated with hook manner. 
+
+# Deployment
+## Prerequisite
+- docker
+- docker-compose
+
+Docker-compose has been used for deployment
+There are 2 docker containers has been used. 
+1. json-server
+2. tamboon application
+
+To start, simply run the below command
+```docker-compose up -d```
+
+To stop, simply run the below command. It will take care of the auto clean process of docker images as well. 
+```docker-compose down -v --rmi all --remove-orphans```
+
+# Future enhancement
+* Dedicated backend API
+* CRUD operation to charities
+* Admin login
+* Charity volunteer
+* Charity fund goal

@@ -7,12 +7,13 @@
   "author": "Ratchagarn Naewbuntad <ratchagarn@omise.co>",
   "license": "MIT",
   "scripts": {
-    "server": "json-server --watch db.json --port 3001",
+    "server": "json-server --watch ./data/db.json --port 3001",
     "client": "webpack-dev-server",
     "test": "jest",
     "flow": "flow",
     "flow:watch": "flow-watch",
-    "eslint-fix": "eslint --fix \"src/**/*.js\" "
+    "eslint-fix": "eslint --fix \"src/**/*.js\" ",
+    "build": "webpack --mode production"
   },
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",

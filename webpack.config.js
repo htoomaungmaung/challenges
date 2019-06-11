@@ -5,7 +5,9 @@ const config = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'build'),
-    publicPath: 'build',
+    publicPath: '/',
+    filename: 'bundle.js',
+    chunkFilename: '[name].[chunkhash].js'
   },
 
   devtool: 'inline-source-map',
@@ -20,8 +22,7 @@ const config = {
   },
 
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.js$/,
         exclude: [/node_modules/],
         use: {
