@@ -2,15 +2,15 @@ version: '3'
 
 services:
   data:
-    image: json-api-server
     build: './data'
+    image: json-api-server
     ports:
       - 3001:3000
     container_name: json-api-server
 
   tamboon:
-    image: tamboon
     build: './'
+    image: tamboon
     ports:
       - 80:80
     container_name: tamboon
